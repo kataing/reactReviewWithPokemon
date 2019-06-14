@@ -25,7 +25,7 @@ class Search extends React.Component {
     return(
       <div>
         <form action="" >
-          <input onChange={this.handleInput} type="text" />
+          <input onChange={this.handleInput} value={this.state.value} type="text" />
           <button onClick={this.handleSubmit}>button</button>
         </form>
       </div>
