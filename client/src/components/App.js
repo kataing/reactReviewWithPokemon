@@ -22,9 +22,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({
-      pokemon: this.props.pokemon
-    })
+
   }
 
   render() {
