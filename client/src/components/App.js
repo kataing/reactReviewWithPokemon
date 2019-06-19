@@ -10,18 +10,27 @@ class App extends React.Component {
     this.state = {
       pokemon: []
     }
+    this.addSearchedPokemon = this.addSearchedPokemon.bind(this);
+  }
+
+  addSearchedPokemon(pokemon) {
+    let newPokemon = [...this.state.pokemon];
+    newPokemon.push(pokemon);
+    this.setState({
+      pokemon: newPokemon
+    })
   }
 
   componentDidMount() {
     this.setState({
       pokemon: this.props.pokemon
-    }, () => {console.log(this.state.pokemon)})
+    })
   }
 
   render() {
     return (
       <div>
-        <Search />
+        <Search addSearchedPokemon={this.addSearchedPokemon}/>
         <PokemonList pokemon={this.state.pokemon}/>
       </div>
     )

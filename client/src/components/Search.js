@@ -1,4 +1,5 @@
 import React from 'react';
+import getPokemon from '../../../lib/getPokemon.js'
 
 class Search extends React.Component {
   constructor(props) {
@@ -18,7 +19,10 @@ class Search extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state.value);
+    getPokemon(this.state.value, this.props.addSearchedPokemon)
+    this.setState({
+      value: ''
+    })
   }
   
   render () {
@@ -26,7 +30,7 @@ class Search extends React.Component {
       <div>
         <form action="" >
           <input onChange={this.handleInput} value={this.state.value} type="text" />
-          <button onClick={this.handleSubmit}>button</button>
+          <button onClick={this.handleSubmit}>submit</button>
         </form>
       </div>
     );
